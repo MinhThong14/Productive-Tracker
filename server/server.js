@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+const ActivityRouter = require("./routes/activity.route");
 /* Loading the environment variables from the .env file. */
 require("dotenv").config();
 
@@ -18,6 +19,9 @@ When it receives a request, it will send back a response with the string "Hello 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+/* Telling the application to use the ActivityRouter for any requests that start with "/api". */
+app.use("/api", ActivityRouter);
 
 /* Connecting to the database and then starting the server. */
 mongoose
