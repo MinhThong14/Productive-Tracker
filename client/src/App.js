@@ -4,6 +4,18 @@ import {useEffect, useState} from "react";
 function App() {
   const [activities, setActivities] = useState([]);
 
+ /* Fetching the data from the backend and setting the state of activities to the data. */
+ useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/activities`
+      );
+      const data = await result.json();
+      setActivities(data);
+    };
+    fetchData();
+  }, []);
+
   const addActivity = async (event) => {
     event.preventDefault();
     
