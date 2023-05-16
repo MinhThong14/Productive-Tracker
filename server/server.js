@@ -5,6 +5,7 @@ const cors = require("cors");
 const app = express();
 
 const ActivityRouter = require("./routes/activity.route");
+const AuthRouter = require("./routes/auth.route");
 /* Loading the environment variables from the .env file. */
 require("dotenv").config();
 
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 
 /* Telling the application to use the ActivityRouter for any requests that start with "/api". */
 app.use("/api", ActivityRouter);
+app.use("/api/auth", AuthRouter);
 
 /* Connecting to the database and then starting the server. */
 mongoose

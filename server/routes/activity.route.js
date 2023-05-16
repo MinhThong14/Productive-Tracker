@@ -8,8 +8,8 @@ const {
 const router = express.Router();
 
 /* Creating a route for the get request. */
-router.get("/activities", getActivities);
+router.get("/activities", auth, getActivities);
 /* Creating a route for the post request. */
-router.post("/activity", addActivity);
+router.post("/activity", auth, addActivity);
 
 module.exports = router;
