@@ -1,7 +1,10 @@
 const Activity = require("../models/activity.model");
 
 /**
- * It's an async function that uses the Activity model to find all activities and then returns a status of 200 with the activities in the response body.
+ * It's an async function that uses the Activity model to find all activities and then returns a status
+ * of 200 with the activities in the response body.
+ * @param req - The request object.
+ * @param res - the response object
  */
 const getActivities = async (req, res) => {
   try {
@@ -14,6 +17,8 @@ const getActivities = async (req, res) => {
 
 /**
  * It creates a new activity and saves it to the database.
+ * @param req - The request object.
+ * @param res - the response object
  */
 const addActivity = async (req, res) => {
   const activity = new Activity(req.body);
