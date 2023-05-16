@@ -4,6 +4,7 @@ const {
   getActivities,
   addActivity,
 } = require("../controllers/activity.controller");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 
